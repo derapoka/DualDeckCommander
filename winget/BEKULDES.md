@@ -19,9 +19,10 @@ GitHub-felhasználó: **derapoka** – a linkek mindenhol erre mutatnak
 
 1. Írd át a verziót két helyen: `src\DualDeckCommander.csproj` (`<Version>`) és
    `installer\DualDeckCommander.nsi` (`!define VERSION`).
-2. Címke feltöltése – GitHub Desktopban: *History* → jobb klikk a legutóbbi commiton →
-   *Create Tag…* → `v0.6.0` → *Push origin*. (Parancssorból: `git tag v0.6.0` és `git push origin v0.6.0`.)
-3. Pár perc múlva az **Actions** fülön lefut a `release` folyamat, és a **Releases** oldalon
+2. Töltsd fel a változást, majd a tároló oldalán: **Actions** fül → bal oldalt **release** →
+   jobb oldalt **Run workflow** → zöld **Run workflow** gomb. (A verziót a csproj fájlból veszi,
+   a `v0.7.0` címkét magától létrehozza.)
+3. Pár perc múlva a **Releases** oldalon
    megjelenik a kiadás a telepítővel és a `SHA256SUMS.txt` fájllal.
 4. Töltsd fel a telepítőt a **virustotal.com** oldalra, és a jelentés linkjét írd be a kiadás
    leírásába (*Edit release*).
@@ -36,8 +37,8 @@ winget install Microsoft.WingetCreate
 
 **Első alkalommal** a kész leírófájlokkal:
 
-1. A `winget\manifests\...\0.6.0\` fájlok közül az `...installer.yaml` fájlban az
-   `InstallerSha256` sorba másold be a hash-t a kiadás `SHA256SUMS.txt` fájljából.
+1. A 0.6.0-s fájlok már teljesen ki vannak töltve (az `InstallerSha256` is), nincs mit átírni.
+   Későbbi verzióknál a hash a kiadás `SHA256SUMS.txt` fájljában van.
 2. Ellenőrzés és helyi próba:
    ```bat
    winget validate --manifest winget\manifests\b\BaranyiLaszlo\DualDeckCommander\0.6.0

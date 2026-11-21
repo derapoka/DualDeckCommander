@@ -96,8 +96,8 @@ Requirements: Windows, [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet
 - **Program only:** run `build.bat` → `publish\DualDeckCommander.exe`
 - **Installer:** run `Telepito-keszitese.bat` – installs the .NET 8 SDK and NSIS with winget if
   missing, builds a self-contained single-file exe and the installer into `dist\`.
-- **CI:** every push builds the installer via GitHub Actions; pushing a tag like `v0.6.0`
-  publishes a GitHub Release automatically.
+- **CI:** every push builds the installer via GitHub Actions. To publish a release, bump
+  `<Version>` in the csproj and `VERSION` in the .nsi, then run *Actions → release → Run workflow*.
 
 ```bat
 cd src

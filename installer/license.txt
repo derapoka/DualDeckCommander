@@ -1,0 +1,28 @@
+﻿Dual Deck Commander – Licencfeltételek
+Készítette: Baranyi László
+Licenc: Freeware (ingyenes)
+
+A Dual Deck Commander ingyenes program. Szabadon használható magáncélra és munkahelyen is,
+és változtatás nélkül szabadon továbbadható. Eladni, illetve fizetős csomag részeként
+terjeszteni nem szabad.
+
+JOGI NYILATKOZAT (DISCLAIMER)
+
+A szoftver ingyenesen, „ahogy van” (AS-IS) alapon, bármiféle kifejezett vagy hallgatólagos
+garanciavállalás nélkül kerül terjesztésre és felhasználásra. A szerző nem vállal felelősséget
+semmilyen adatvesztésért, fájlsérülésért, illetve közvetlen vagy közvetett kárért, amely a
+program használatából vagy használatának képtelenségéből ered.
+
+A Dual Deck Commander független, nem hivatalos eszköz: nem áll kapcsolatban a Microsofttal, az
+Amiga/Commodore jogtulajdonosaival vagy más említett gyártókkal és védjegytulajdonosokkal.
+A program nem támogatja és nem népszerűsíti a szerzői jogvédelem alatt álló tartalmak
+jogosulatlan másolását, terjesztését vagy a másolásvédelmi mechanizmusok megkerülését.
+
+A felhasználó kizárólagos felelőssége, hogy a szoftverrel kezelt fájlok és lemezképek
+tekintetében rendelkezzen a szükséges jogosultságokkal, és betartsa a hatályos szerzői jogi
+és egyéb jogszabályokat.
+
+FELHASZNÁLT ÖSSZETEVŐK
+
+SharpCompress – MIT licenc (https://github.com/adamhathcock/sharpcompress)
+iso2god-rs – MIT licenc (https://github.com/iliazeus/iso2god-rs) – GoD fejlécsablon, címadatbázis

@@ -1,0 +1,37 @@
+# Kiadás: egy "v" kezdetű címke (pl. v0.6.0) feltöltésekor lefordítja a programot,
+# elkészíti a telepítőt, és GitHub Release-t hoz létre vele.
+#   git tag v0.6.0
+#   git push origin v0.6.0
+name: release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Program
+        run: dotnet publish src/DualDeckCommander.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o publish-installer
+      - name: NSIS
+        run: choco install nsis --no-progress -y
+      - name: Telepítő
+        run: |
+          New-Item -ItemType Directory -Force dist | Out-Null
+          & "C:\Program Files (x86)\NSIS\makensis.exe" /V2 installer\DualDeckCommander.nsi
+      - name: SHA256 (a winget leírófájlhoz)
+        shell: pwsh
+        run: |
+          Get-ChildItem dist\*.exe | ForEach-Object {
+            "$((Get-FileHash $_ -Algorithm SHA256).Hash)  $($_.Name)" } | Tee-Object dist\SHA256SUMS.txt
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.exe
+            dist/SHA256SUMS.txt
+          generate_release_notes: true

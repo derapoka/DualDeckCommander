@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>DualDeckCommander</RootNamespace>
+    <AssemblyName>DualDeckCommander</AssemblyName>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+    <ApplicationVisualStyles>true</ApplicationVisualStyles>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>0.6.0</Version>
+    <Product>Dual Deck Commander</Product>
+    <Company>Baranyi László</Company>
+    <Authors>Baranyi László</Authors>
+    <Copyright>Freeware – Baranyi László</Copyright>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <Description>Ingyenes, kétpaneles fájlkezelő Windowsra</Description>
+    <!-- Lehetővé teszi a fordítást nem Windows gépen is (pl. CI) -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\app.ico" LogicalName="app.ico" />
+    <EmbeddedResource Include="Assets\logo.png" LogicalName="logo.png" />
+    <EmbeddedResource Include="Assets\splash.png" LogicalName="splash.png" />
+    <EmbeddedResource Include="Assets\empty_live.bin" LogicalName="empty_live.bin" />
+    <EmbeddedResource Include="Assets\xbox_titles.txt" LogicalName="xbox_titles.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- RAR és 7z kibontás (tiszta C#, MIT licenc). ZIP: beépített; LHA, LZX: saját kód. -->
+    <PackageReference Include="SharpCompress" Version="0.50.4" />
+  </ItemGroup>
+
+</Project>

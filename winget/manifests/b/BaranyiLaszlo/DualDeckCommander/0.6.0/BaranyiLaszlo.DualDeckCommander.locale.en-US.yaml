@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.10.0.schema.json
+PackageIdentifier: BaranyiLaszlo.DualDeckCommander
+PackageVersion: 0.6.0
+PackageLocale: en-US
+Publisher: Baranyi László
+PublisherUrl: https://github.com/derapoka
+PublisherSupportUrl: https://github.com/derapoka/DualDeckCommander/issues
+Author: László Baranyi
+PackageName: Dual Deck Commander
+PackageUrl: https://github.com/derapoka/DualDeckCommander
+License: Freeware
+LicenseUrl: https://github.com/derapoka/DualDeckCommander/blob/main/LICENSE.txt
+Copyright: Freeware – László Baranyi
+ShortDescription: Free dual-panel file manager for emulator fans and disc images (Xbox ISO, GoD conversion, Amiga ADF/DMS/HDF, LHA/LZX).
+Description: |-
+  Dual Deck Commander is a free, keyboard-driven two-panel file manager in the spirit of Total Commander.
+  It browses Xbox / Xbox 360 ISO images like folders and converts them to Games on Demand (GoD) format,
+  opens Amiga ADF, ADZ, DMS and HDF disk images, and browses / extracts ZIP, RAR, 7-Zip, LHA and Amiga LZX archives.
+  Tabs, favourite folders, dark theme and a built-in image viewer are included. The user interface is in Hungarian.
+Moniker: dualdeck
+Tags:
+  - file-manager
+  - dual-pane
+  - commander
+  - xbox
+  - xbox-360
+  - iso
+  - games-on-demand
+  - god
+  - amiga
+  - adf
+  - dms
+  - lha
+  - lzx
+  - archive
+  - emulation
+  - image-viewer
+ReleaseNotesUrl: https://github.com/derapoka/DualDeckCommander/releases/tag/v0.6.0
+ManifestType: defaultLocale
+ManifestVersion: 1.10.0

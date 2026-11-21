@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.locale.1.10.0.schema.json
+PackageIdentifier: BaranyiLaszlo.DualDeckCommander
+PackageVersion: 0.6.0
+PackageLocale: hu-HU
+Publisher: Baranyi László
+Author: Baranyi László
+PackageName: Dual Deck Commander
+License: Ingyenes (freeware)
+ShortDescription: Ingyenes kétpaneles fájlkezelő emulátorokhoz és lemezképekhez (Xbox ISO, GoD átalakítás, Amiga ADF/DMS/HDF, LHA/LZX).
+Description: |-
+  A Dual Deck Commander ingyenes, billentyűzetről kezelhető kétpaneles fájlkezelő a Total Commander mintájára.
+  Mappaként böngészi az Xbox / Xbox 360 ISO lemezképeket és Games on Demand (GoD) formátumra alakítja őket,
+  megnyitja az Amiga ADF, ADZ, DMS és HDF lemezképeket, valamint böngészi és kibontja a ZIP, RAR, 7-Zip,
+  LHA és Amiga LZX archívumokat. Fülek, kedvenc mappák, sötét téma és beépített képnézegető is van benne.
+Tags:
+  - fajlkezelo
+  - ketpaneles
+  - xbox
+  - amiga
+  - emulator
+ManifestType: locale
+ManifestVersion: 1.10.0

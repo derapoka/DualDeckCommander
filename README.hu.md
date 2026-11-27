@@ -11,7 +11,7 @@ Kattints duplán a **`Telepito-keszitese.bat`** fájlra. Mindent elvégez:
 
 1. ha hiányzik, telepíti a szükséges ingyenes eszközöket (.NET 8 SDK, NSIS) a Windows `winget` programjával,
 2. lefordítja a programot (önálló exe – a célgépen nem kell hozzá .NET),
-3. elkészíti a telepítőt: **`dist\DualDeckCommander-0.6.0-telepito.exe`**, és megnyitja a mappát.
+3. elkészíti a telepítőt: **`dist\DualDeckCommander-0.7.0-telepito.exe`**, és megnyitja a mappát.
 
 Az első futás a letöltések miatt néhány percig tart, utána kb. egy perc.
 
@@ -33,7 +33,7 @@ Ezen kívül:
 - a Start menüben eltávolító parancsikon is van,
 - frissítéskor a korábbi telepítési mappát ajánlja fel,
 - az eltávolító mindent visszatesz (parancsikonok, fájltársítások, registry), a beállítások törlését megkérdezi,
-- csendes telepítés rendszergazdáknak: `DualDeckCommander-0.6.0-telepito.exe /S /D=D:\Programok\Dual Deck Commander`.
+- csendes telepítés rendszergazdáknak: `DualDeckCommander-0.7.0-telepito.exe /S /D=D:\Programok\Dual Deck Commander`.
 
 GitHubon a `.github/workflows/build.yml` minden feltöltés után elkészíti a telepítőt (Actions fül → artifact).
 
@@ -146,6 +146,9 @@ GoD formára alakítja – választható művelet, az eredeti ISO nem változik.
 
 - Két panel, sötét / világos téma (Ctrl+Shift+T), meghajtóikonok, színezett mappák
 - F3 nézőke, F4 szerkesztő, F5 másolás, F6 áthelyezés, F7 új mappa, F8 Lomtárba, Shift+Del végleges törlés
+- **Több mappa egyszerre** (F7 → „Több mappa…”, vagy Shift+F7): nagy ablakba beillesztett szövegből
+  soronként egy mappa; élő előnézet, almappák (`Szülő\Gyerek`), felsorolásjelek levágása, tiltott
+  karakterek cseréje (`Halo 3: ODST` → `Halo 3 - ODST`), opcionális sorszámozás, betöltés .txt fájlból
 - Felülírás- és hibakezelés (Újra / Kihagyás / Mindet …), haladásjelző, megszakítás
 - Alt+F7 keresés név és tartalom alapján, parancssor a panelek alatt
 - Vágólap és fogd és vidd az Intézővel is, automatikus frissítés, rejtett fájlok (Ctrl+H)

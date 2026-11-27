@@ -12,7 +12,7 @@
     <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
     <ApplicationVisualStyles>true</ApplicationVisualStyles>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <Version>0.6.0</Version>
+    <Version>0.7.0</Version>
     <Product>Dual Deck Commander</Product>
     <Company>Baranyi László</Company>
     <Authors>Baranyi László</Authors>

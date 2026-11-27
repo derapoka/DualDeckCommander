@@ -59,6 +59,14 @@ internal sealed class Settings
     public bool GodTrim { get; set; } = true;
     public bool GodShowResult { get; set; } = true;
 
+    // ---- Új mappa (F7) ----
+    /// <summary>F7-nél megkérdezi: egy mappa vagy több (szövegből).</summary>
+    public bool NewFolderAsk { get; set; } = true;
+    public bool MultiFolderStripBullets { get; set; } = true;
+    public bool MultiFolderFixInvalid { get; set; } = true;
+    public bool MultiFolderSplitSemicolon { get; set; }
+    public bool MultiFolderNumbering { get; set; }
+
     /// <summary>A futó program beállításai (a fájlpanelek innen olvassák).</summary>
     [System.Text.Json.Serialization.JsonIgnore]
     public static Settings Current { get; set; } = new();

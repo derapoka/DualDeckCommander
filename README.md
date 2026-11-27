@@ -66,6 +66,8 @@ TGA, plus WebP, HEIC and AVIF via Windows codecs. Respects EXIF orientation.
 - **Right-click selection** like Total Commander (long press for the context menu);
   marked files shown in red
 - Overwrite / error handling (Retry, Skip, All…), progress with cancel
+- **Create many folders at once** (Shift+F7): paste a list, one folder per line – live preview,
+  subfolders (`Parent\Child`), bullet stripping, invalid-character fixing, optional numbering
 - Search by name and content (Alt+F7), command line under the panels
 - Clipboard and drag & drop with Explorer, auto refresh, hidden files (Ctrl+H)
 - Settings dialog (Ctrl+O), full keyboard reference in the app (F1)

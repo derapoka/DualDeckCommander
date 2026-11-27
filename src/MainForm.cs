@@ -390,6 +390,7 @@ internal sealed class MainForm : Form
             case Keys.F6: DoTransfer(true); return true;
             case Keys.Shift | Keys.F6: DoRename(); return true;
             case Keys.F7: DoNewFolder(); return true;
+            case Keys.Shift | Keys.F7: DoNewFolders(); return true;
             case Keys.F8: DoDelete(false); return true;
             case Keys.Shift | Keys.F8: DoDelete(true); return true;
             case Keys.Delete when inList: DoDelete(false); return true;
@@ -707,6 +708,66 @@ internal sealed class MainForm : Form
     private void DoNewFolder()
     {
         if (BlockedByArchive(_active)) return;
+        if (_settings.NewFolderAsk)
+        {
+            var options = new[] { "&Egy mappa", "&Több mappa...", "Mégse" };
+            int r = Dialogs.Choose(this, "Új mappa", "Egy mappát hozol létre, vagy többet egyszerre?\n\n" +
+                "Több mappánál egy szövegből (soronként egy név) készülnek a mappák.",
+                options, 0, 2, SystemIcons.Question);
+            if (r == 1) { DoNewFolders(); return; }
+            if (r != 0) { _active.FocusList(); return; }
+        }
+        DoNewSingleFolder();
+    }
+
+    /// <summary>Shift+F7: több mappa létrehozása beillesztett szövegből.</summary>
+    private void DoNewFolders()
+    {
+        if (BlockedByArchive(_active)) return;
+        string baseDir = _active.CurrentPath;
+        List<string> folders;
+        using (var form = new MultiFolderForm(baseDir, _settings))
+        {
+            if (form.ShowDialog(this) != DialogResult.OK) { _active.FocusList(); return; }
+            folders = form.Folders.ToList();
+        }
+        _settings.Save();
+
+        int created = 0;
+        string? first = null;
+        var errors = new List<string>();
+        Cursor = Cursors.WaitCursor;
+        try
+        {
+            foreach (var f in folders)
+            {
+                string path = Path.Combine(baseDir, f);
+                try
+                {
+                    if (Directory.Exists(path)) continue;
+                    Directory.CreateDirectory(path);
+                    created++;
+                    first ??= f.Split('\\')[0];
+                }
+                catch (Exception ex) { errors.Add($"{f}: {ex.Message}"); }
+            }
+        }
+        finally { Cursor = Cursors.Default; }
+
+        _active.Reload();
+        if (first != null) _active.FocusName(first);
+        if (errors.Count > 0)
+            Msg.Show(this, $"{created} mappa elkészült, {errors.Count} nem sikerült:\n\n" +
+                           string.Join("\n", errors.Take(15)) + (errors.Count > 15 ? "\n…" : ""),
+                "Több mappa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        else if (created == 0)
+            Msg.Show(this, "Minden megadott mappa létezett már.", "Több mappa",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        _active.FocusList();
+    }
+
+    private void DoNewSingleFolder()
+    {
         var name = InputDialog.Show(this, "Új mappa", "Az új mappa neve:", "Új mappa");
         _active.FocusList();
         if (string.IsNullOrWhiteSpace(name)) return;
@@ -1557,6 +1618,7 @@ internal sealed class MainForm : Form
             Item("Áthelyezés...", "F6", () => DoTransfer(true)),
             Item("Átnevezés...", "Shift+F6", DoRename),
             Item("Új mappa...", "F7", DoNewFolder),
+            Item("Több mappa szövegből...", "Shift+F7", DoNewFolders),
             Item("Törlés (Lomtárba)", "F8 / Del", () => DoDelete(false)),
             Item("Végleges törlés", "Shift+Del", () => DoDelete(true)),
             new ToolStripSeparator(),
@@ -1760,7 +1822,7 @@ internal sealed class MainForm : Form
             "Ctrl+A – mind,  Ctrl+Shift+A – egyik sem\n\n" +
             "MŰVELETEK\n" +
             "F3 nézőke,  F4 szerkesztés,  Shift+F4 új fájl,  F5 másolás,  F6 áthelyezés\n" +
-            "Shift+F6 átnevezés,  F7 új mappa,  F8/Del Lomtárba,  Shift+Del végleges törlés\n" +
+            "Shift+F6 átnevezés,  F7 új mappa,  Shift+F7 több mappa szövegből,  F8/Del Lomtárba,  Shift+Del végleges törlés\n" +
             "Ctrl+C / X / V – vágólap,  Alt+Enter – tulajdonságok,  Alt+F7 – keresés\n" +
             "Ctrl+U – panelcsere,  Ctrl+R – frissítés,  Ctrl+H – rejtett fájlok\n" +
             "Ctrl+Shift+T – sötét / világos téma\n\n" +

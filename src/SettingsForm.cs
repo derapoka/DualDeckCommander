@@ -254,6 +254,8 @@ internal sealed class SettingsForm : Form
             "Kikapcsolva az F8 / Del véglegesen töröl. A Shift+Del mindig véglegesen töröl.");
         Check(work, "Megerősítés kérése Lomtárba helyezés előtt", () => w.ConfirmDelete, v => w.ConfirmDelete = v,
             "A végleges törlés mindig rákérdez.");
+        Check(work, "Új mappánál (F7) kérdezzen: egy vagy több mappa", () => w.NewFolderAsk, v => w.NewFolderAsk = v,
+            "Kikapcsolva az F7 egy mappát kér; több mappa: Shift+F7.");
         Check(work, "Fülek megjegyzése kilépéskor", () => w.RememberTabs, v => w.RememberTabs = v);
         Check(work, "Indítóképernyő megjelenítése induláskor", () => w.ShowSplash, v => w.ShowSplash = v);
 

@@ -15,7 +15,7 @@ SetCompressor /SOLID lzma
 !define UNINSTKEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\DualDeckCommander"
 !define PROGID    "DualDeckCommander.Image"
 !ifndef VERSION
-  !define VERSION "0.6.0"
+  !define VERSION "0.7.0"
 !endif
 !ifndef SOURCEDIR
   !define SOURCEDIR "..\publish-installer"

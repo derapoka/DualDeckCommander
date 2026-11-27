@@ -65,7 +65,7 @@ if errorlevel 1 goto :error
 
 echo.
 echo   ===========================================================
-echo     KESZ!  dist\DualDeckCommander-0.6.0-telepito.exe
+echo     KESZ!  dist\DualDeckCommander-0.7.0-telepito.exe
 echo   ===========================================================
 echo.
 explorer dist

@@ -5,6 +5,11 @@
 name: release
 on:
   workflow_dispatch:
+    inputs:
+      draft:
+        description: 'Csak piszkozat (nem nyilvános) kiadás'
+        type: boolean
+        default: false
   push:
     tags: ['v*']
 permissions:
@@ -45,3 +50,4 @@ jobs:
             dist/*.exe
             dist/SHA256SUMS.txt
           generate_release_notes: true
+          draft: ${{ inputs.draft == true }}
